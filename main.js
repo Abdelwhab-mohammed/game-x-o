@@ -1,0 +1,82 @@
+let title = document.querySelector(".title");
+let turn = 'x';
+let arr = [];
+function proparties(num1,num2,num3){
+        document.getElementById("item"+num1).style.background="#000";
+        document.getElementById("item"+num2).style.background="#000";
+        document.getElementById("item"+num3).style.background="#000";
+        setInterval(function(){
+            title.innerHTML +='.';
+        },1000)
+        setTimeout(function(){
+            location.reload();
+        },4000)
+}
+function winner() {
+    for(let x = 1; x < 10; x++) {
+        arr[x] = document.getElementById("item" + x);
+    }
+    
+    // تحقق من الصفوف
+    if(arr[1].innerHTML && arr[1].innerHTML == arr[2].innerHTML && arr[2].innerHTML == arr[3].innerHTML&&arr[2].innerHTML!='') {
+        title.innerHTML = arr[1].innerHTML + ' is winner';
+        proparties(1,2,3);
+        return;
+    }
+    if(arr[4].innerHTML && arr[4].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[6].innerHTML&&arr[4].innerHTML!='') {
+        title.innerHTML = arr[4].innerHTML + ' is winner';
+        proparties(4,5,6);
+
+        return;
+    }
+    if(arr[7].innerHTML && arr[7].innerHTML == arr[8].innerHTML && arr[8].innerHTML == arr[9].innerHTML&&arr[7].innerHTML!='') {
+        title.innerHTML = arr[7].innerHTML + ' is winner';
+        proparties(7,8,9);
+        return;
+    }
+    
+    // تحقق من الأعمدة
+    if(arr[1].innerHTML && arr[1].innerHTML == arr[4].innerHTML && arr[4].innerHTML == arr[7].innerHTML&&arr[1].innerHTML!='') {
+        title.innerHTML = arr[1].innerHTML + ' is winner';
+        proparties(1,4,7);
+        return;
+    }
+    if(arr[2].innerHTML && arr[2].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[8].innerHTML&&arr[2].innerHTML!='') {
+        title.innerHTML = arr[2].innerHTML + ' is winner';
+        proparties(2,5,8);
+        return;
+    }
+    if(arr[3].innerHTML && arr[3].innerHTML == arr[6].innerHTML && arr[6].innerHTML == arr[9].innerHTML&&arr[3].innerHTML!='') {
+        title.innerHTML = arr[3].innerHTML + ' is winner';
+        proparties(3,6,9);
+        return;
+    }
+    
+    // تحقق من القطرين
+    if(arr[1].innerHTML && arr[1].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[9].innerHTML&&arr[1].innerHTML!='') {
+        title.innerHTML = arr[1].innerHTML + ' is winner';
+        proparties(1,5,9);
+        return;
+    }
+    if(arr[3].innerHTML && arr[3].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[7].innerHTML&&arr[3].innerHTML!='') {
+        title.innerHTML = arr[3].innerHTML + ' is winner';
+        proparties(3,5,7);
+        return;
+    }
+}
+
+function game(id) {
+    let element = document.getElementById(id);
+    if(turn === 'x' && element.innerHTML == "") {
+        element.innerHTML = 'x';
+        turn = 'o';
+        title.innerHTML = 'o';
+    }
+    else if(turn === 'o' && element.innerHTML == "") {
+        element.innerHTML = 'o';
+        turn = 'x';
+        title.innerHTML = 'x';
+    }
+
+    winner();
+}
