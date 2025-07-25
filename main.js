@@ -1,6 +1,10 @@
 let title = document.querySelector(".title");
 let turn = 'x';
 let arr = [];
+let user1=prompt("enter your name play 1");
+let valueuser1=prompt("enter your char (x/o)");
+let user2=prompt("enter your name play 2");
+let valueuser2=prompt("enter your char (x/o)");
 function proparties(num1,num2,num3){
         document.getElementById("item"+num1).style.background="#000";
         document.getElementById("item"+num2).style.background="#000";
@@ -19,47 +23,82 @@ function winner() {
     
     // تحقق من الصفوف
     if(arr[1].innerHTML && arr[1].innerHTML == arr[2].innerHTML && arr[2].innerHTML == arr[3].innerHTML&&arr[2].innerHTML!='') {
-        title.innerHTML = arr[1].innerHTML + ' is winner';
+        if(arr[1].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
         proparties(1,2,3);
         return;
     }
     if(arr[4].innerHTML && arr[4].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[6].innerHTML&&arr[4].innerHTML!='') {
-        title.innerHTML = arr[4].innerHTML + ' is winner';
+         if(arr[4].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
         proparties(4,5,6);
 
         return;
     }
     if(arr[7].innerHTML && arr[7].innerHTML == arr[8].innerHTML && arr[8].innerHTML == arr[9].innerHTML&&arr[7].innerHTML!='') {
-        title.innerHTML = arr[7].innerHTML + ' is winner';
+         if(arr[7].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
         proparties(7,8,9);
         return;
     }
     
     // تحقق من الأعمدة
     if(arr[1].innerHTML && arr[1].innerHTML == arr[4].innerHTML && arr[4].innerHTML == arr[7].innerHTML&&arr[1].innerHTML!='') {
-        title.innerHTML = arr[1].innerHTML + ' is winner';
+        if(arr[1].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
+
         proparties(1,4,7);
         return;
     }
     if(arr[2].innerHTML && arr[2].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[8].innerHTML&&arr[2].innerHTML!='') {
-        title.innerHTML = arr[2].innerHTML + ' is winner';
+        if(arr[2].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
+
         proparties(2,5,8);
         return;
     }
     if(arr[3].innerHTML && arr[3].innerHTML == arr[6].innerHTML && arr[6].innerHTML == arr[9].innerHTML&&arr[3].innerHTML!='') {
-        title.innerHTML = arr[3].innerHTML + ' is winner';
+        if(arr[3].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
         proparties(3,6,9);
         return;
     }
     
     // تحقق من القطرين
     if(arr[1].innerHTML && arr[1].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[9].innerHTML&&arr[1].innerHTML!='') {
-        title.innerHTML = arr[1].innerHTML + ' is winner';
+        if(arr[1].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
+
         proparties(1,5,9);
         return;
     }
     if(arr[3].innerHTML && arr[3].innerHTML == arr[5].innerHTML && arr[5].innerHTML == arr[7].innerHTML&&arr[3].innerHTML!='') {
-        title.innerHTML = arr[3].innerHTML + ' is winner';
+        if(arr[3].innerHTML==valueuser1){
+            title.innerHTML = user1 + ' is winner';
+        }else{
+            title.innerHTML = user2 + ' is winner';
+        }
         proparties(3,5,7);
         return;
     }
