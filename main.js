@@ -1,10 +1,22 @@
 let title = document.querySelector(".title");
 let turn = 'x';
-let arr = [];
-let user1=prompt("enter your name play 1");
-let valueuser1=prompt("enter your char (x/o)");
-let user2=prompt("enter your name play 2");
-let valueuser2=prompt("enter your char (x/o)");
+let user1;
+do {
+    user1 = prompt("Enter your name (Player 1):");
+} while (user1 === null || user1.trim() === "");
+
+let valueuser1;
+do {
+    valueuser1 = prompt("Choose your char (x or o):");
+} while (valueuser1 === null || valueuser1.trim() === "" || (valueuser1 !== "x" && valueuser1 !== "o"));
+
+// اللاعب التاني بياخد الحرف العكسي تلقائي
+let user2;
+do {
+    user2 = prompt("Enter your name (Player 2):");
+} while (user2 === null || user2.trim() === "");
+
+let valueuser2 = valueuser1 === "x" ? "o" : "x";
 function proparties(num1,num2,num3){
         document.getElementById("item"+num1).style.background="#000";
         document.getElementById("item"+num2).style.background="#000";
