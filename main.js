@@ -29,6 +29,7 @@ function proparties(num1,num2,num3){
         },4000)
 }
 function winner() {
+    let arr = []; 
     for(let x = 1; x < 10; x++) {
         arr[x] = document.getElementById("item" + x);
     }
